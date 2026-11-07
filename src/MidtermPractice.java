@@ -64,7 +64,13 @@ public class MidtermPractice {
      * Example: input: {"a"=7, "x"=4, "z"=5} -> output: 2
      */
     public static int countOddNumbers(Map<String, Integer> map) {
-        return -1;
+        int count = 0;
+        for (Integer value : map.values()) {
+            if (value % 2 != 0) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -76,7 +82,15 @@ public class MidtermPractice {
      * Example 2: input: [3, 4, 6, 9] -> output: false
      */
     public static boolean allDivisibleBy3(int[] arr) {
-        return false;
+        if (arr.length == 0) {
+            return true;
+        }
+        for ( int num : arr){
+            if (num % 3 != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -88,7 +102,15 @@ public class MidtermPractice {
      * Example: input: ["apple", "banana", "avocado"] -> output: false
      */
     public static boolean allStartWithA(List<String> list) {
-        return false;
+        if (list.size() == 0) {
+            return true;
+        }
+        for (String word : list) {
+            if (!word.toLowerCase().startsWith("a")) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -96,7 +118,17 @@ public class MidtermPractice {
      * Returns true if the head is null.
      * @param head the head of the linked list.
      */
-    public static boolean allPositive(ListNode head) {
+    public static boolean allPositive(ListNode head) { 
+       if (head == null) {
+            return true;
+        }
+        ListNode current = head;
+        while (current != null) {
+            if (current.data <= 0) {
+                return false;
+            }
+            current = current.next;
+        }
         return true;
     }
 
@@ -109,7 +141,16 @@ public class MidtermPractice {
      * Explanation: 5 * 3 * 4 = 60
      */
     public static int product(ListNode head) {
-        return 1;
+        if (head == null) {
+            return 1;
+        }
+        int product = 1;
+        ListNode current = head;
+        while (current != null) {
+            product *= current.data;
+            current = current.next;
+        }
+        return product;
     }
 
     /**
