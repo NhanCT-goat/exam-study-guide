@@ -10,7 +10,16 @@ public class MidtermPractice {
      * Example: input: ["apple", "banana", "kiwi"] -> output: "banana"
      */
     public static String findLongestWord(List<String> list) {
-        return "";
+        if (list.size() == 0) {
+            return "";
+        }
+        String longestWord = list.get(0);
+        for (String word : list) {
+            if (word.length() > longestWord.length()) {
+                longestWord = word;
+            }
+        }
+        return longestWord;
     }
 
     /**
