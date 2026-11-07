@@ -166,7 +166,20 @@ public class MidtermPractice {
      * Explanation: 6, 2, and 4 are each strictly less than 10, so they are removed from the list
      */
     public static ListNode removeSmall(ListNode head) {
-        return null;
+        if (head == null) {
+            return null;
+        }
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode current = dummy;
+        while (current.next != null) {
+            if (current.next.data < 10) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
+        }
+        return dummy.next;
     }
 
 }
